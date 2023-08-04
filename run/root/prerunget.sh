@@ -9,7 +9,7 @@ source /root/tools.sh
 get_vpn_gateway_ip
 
 # blocking script, will wait for name resolution to be operational (will write to /tmp/dnsfailure if failure)
-source /home/nobody/checkdns.sh www.google.com
+source /home/abc/checkdns.sh www.google.com
 
 # blocking script, will wait for external ip address retrieval (external ip written to file /tmp/getvpnextip)
 source /root/getvpnextip.sh

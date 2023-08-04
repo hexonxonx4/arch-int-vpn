@@ -38,7 +38,7 @@ function get_external_ip_web() {
 		# write external ip address to text file, this is then read by the downloader script
 		echo "${external_ip}" > /tmp/getvpnextip
 
-		# chmod file to prevent restrictive umask causing read issues for user nobody (owner is user root)
+		# chmod file to prevent restrictive umask causing read issues for user abc (owner is user root)
 		chmod +r /tmp/getvpnextip
 
 		echo "${external_ip}"
@@ -96,7 +96,7 @@ if [[ "${APPLICATION}" != "sabnzbd" ]] && [[ "${APPLICATION}" != "privoxy" ]]; t
 		# write external ip address to text file, this is then read by the downloader script
 		echo "127.0.0.1" > /tmp/getvpnextip
 
-		# chmod file to prevent restrictive umask causing read issues for user nobody (owner is user root)
+		# chmod file to prevent restrictive umask causing read issues for user abc (owner is user root)
 		chmod +r /tmp/getvpnextip
 
 		return 1

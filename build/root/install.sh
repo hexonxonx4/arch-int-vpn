@@ -7,13 +7,24 @@ set -e
 ####
 
 # download build scripts from github
-curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L https://github.com/binhex/scripts/archive/master.zip
+curl --connect-timeout 5 --max-time 600 --retry 5 --retry-delay 0 --retry-max-time 60 -o /tmp/scripts-master.zip -L "https://github.com/hexonxonx4/scripts/raw/main/scripts.zip"
 
 # unzip build scripts
 unzip /tmp/scripts-master.zip -d /tmp
 
+# make all scripts executable
+chmod +x /tmp/docker/*.sh
+
 # move shell scripts to /root
-mv /tmp/scripts-master/shell/arch/docker/*.sh /usr/local/bin/
+mv /tmp/docker/*.sh /usr/local/bin/
+
+# Verify if the move was successful
+if [ $? -eq 0 ]; then
+  echo "Scripts moved successfully to /usr/local/bin"
+else
+  echo "Failed to move scripts to /usr/local/bin"
+  exit 1
+fi
 
 # detect image arch
 ####

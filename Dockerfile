@@ -1,4 +1,4 @@
-FROM binhex/arch-base:latest
+FROM hexonxonx4/arch-base:latest
 LABEL org.opencontainers.image.authors = "binhex"
 LABEL org.opencontainers.image.source = "https://github.com/binhex/arch-int-vpn"
 
@@ -12,13 +12,13 @@ ADD build/root/*.sh /root/
 ADD run/root/*.sh /root/
 
 # add bash script to run privoxy
-ADD run/nobody/*.sh /home/nobody/
+ADD run/abc/*.sh /home/abc/
 
 # install app
 #############
 
 # make executable and run bash scripts to install app
-RUN chmod +x /root/*.sh /home/nobody/*.sh && \
+RUN chmod +x /root/*.sh /home/abc/*.sh && \
 	/bin/bash /root/install.sh
 
 # docker settings
